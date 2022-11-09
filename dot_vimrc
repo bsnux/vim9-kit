@@ -1,4 +1,4 @@
-" VIM 8.x configuration
+" VIM 9.x configuration
 "
 "  Initial config:
 "   mkdir -p ~/.vim/pack/plugins/{opt,start}
