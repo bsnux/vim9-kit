@@ -4,7 +4,7 @@ Simple Vim configuration using native plugins and git submodules.
 
 ## How to
 
-Clone this repo and created some symlinks:
+Clone this repo and create some symlinks:
 
 ```
 ln -s dot_vimr ~/.vimrc
