@@ -1,0 +1,39 @@
+[submodule "dot_vim/pack/plugins/start/ack.vim"]
+	path = dot_vim/pack/plugins/start/ack.vim
+	url = git@github.com:mileszs/ack.vim.git
+[submodule "dot_vim/pack/plugins/start/ale"]
+	path = dot_vim/pack/plugins/start/ale
+	url = https://github.com/dense-analysis/ale.git
+[submodule "dot_vim/pack/plugins/start/ctrlp.vim"]
+	path = dot_vim/pack/plugins/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "dot_vim/pack/plugins/start/delitMate"]
+	path = dot_vim/pack/plugins/start/delitMate
+	url = git@github.com:Raimondi/delimitMate.git
+[submodule "dot_vim/pack/plugins/start/editorconfig-vim"]
+	path = dot_vim/pack/plugins/start/editorconfig-vim
+	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule "dot_vim/pack/plugins/start/github-actions-yaml.vim"]
+	path = dot_vim/pack/plugins/start/github-actions-yaml.vim
+	url = git@github.com:yasuhiroki/github-actions-yaml.vim.git
+[submodule "dot_vim/pack/plugins/start/markdown-preview"]
+	path = dot_vim/pack/plugins/start/markdown-preview
+	url = git@github.com:iamcco/markdown-preview.nvim.git
+[submodule "dot_vim/pack/plugins/start/papercolor-theme"]
+	path = dot_vim/pack/plugins/start/papercolor-theme
+	url = https://github.com/NLKNguyen/papercolor-theme.git
+[submodule "dot_vim/pack/plugins/start/vim-airline"]
+	path = dot_vim/pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "dot_vim/pack/plugins/start/vim-airline-themes"]
+	path = dot_vim/pack/plugins/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule "dot_vim/pack/plugins/start/vim-fugitive"]
+	path = dot_vim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "dot_vim/pack/plugins/start/vim-go"]
+	path = dot_vim/pack/plugins/start/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule "dot_vim/pack/plugins/start/vim-helm"]
+	path = dot_vim/pack/plugins/start/vim-helm
+	url = git@github.com:towolf/vim-helm.git

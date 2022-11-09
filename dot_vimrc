@@ -1,0 +1,145 @@
+" VIM 8.x configuration
+"
+"  Initial config:
+"   mkdir -p ~/.vim/pack/plugins/{opt,start}
+"
+" How to install a plugin to be loaded in startup process:
+"   curl -L https://github.com/ctrlpvim/ctrlp.vim/archive/refs/tags/1.81.tar.gz | tar zx -C ~/.vim/pack/plugins/start
+"
+" How to install a plugin without be loaded in startup process:
+"   curl -L https://github.com/ctrlpvim/ctrlp.vim/archive/refs/tags/1.81.tar.gz | tar zx -C ~/.vim/pack/plugins/opt
+"   :packadd ctrlp.vim-1.81
+"
+" Cheatsheet
+"
+" cgn:                                Multiple-cursors
+" C-w N:                              Normal mode for terminal
+" :setlocal spell spelllang=en_us     Spell checking for local buffer
+" z=                                  Suggest alternatives during spell checking
+" :vert term                          Open vertical terminal
+
+
+set nu
+
+set colorcolumn=80
+
+set splitright
+set splitbelow
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+set termguicolors
+
+set backspace=2
+
+set hlsearch
+" Use <C-l> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
+
+set mouse=a
+
+set noswapfile
+
+let mapleader = ","
+
+let g:netrw_banner = 1
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
+syntax on
+
+filetype plugin indent on
+
+"colo base16-eighties
+" colo base16-ocean
+colo PaperColor
+
+highlight Comment cterm=italic gui=italic
+
+" Find merge conflict markers
+map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR><Paste>
+
+" Emacs keys for command line
+cnoremap <C-A>	<Home>
+cnoremap <C-B>	<Left>
+cnoremap <C-D>	<Del>
+cnoremap <C-E>	<End>
+cnoremap <C-F>	<Right>
+
+" Emacs keybiding for insert mode
+imap <C-e> <esc>$a
+imap <C-a> <esc>0i
+imap <C-f> <esc>lli
+imap <C-b> <esc>i
+imap <C-k> <esc>d$i
+
+" Format C++ files
+map <leader>f :pyf /opt/homebrew/Cellar/clang-format/14.0.6/share/clang/clang-format.py<cr>
+
+" Change cursor shape between insert and normal mode in iTerm2.app
+if $TERM_PROGRAM =~ "iTerm"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
+
+" ESC for normal mode in Terminal
+tnoremap <Esc> <C-W>N
+
+au BufNewFile,BufRead Jenkinsfile* set tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
+au BufNewFile,BufRead *.yaml set tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
+autocmd BufRead,BufNewFile *.tf set filetype=hcl
+
+" airline plugin
+let g:airline_powerline_fonts = 2
+let g:airline_theme='base16_material'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline_skip_empty_sections = 1
+
+if !exists('g:airline_powerline_fonts')
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
+  let g:airline_left_sep          = '▶'
+  let g:airline_left_alt_sep      = '»'
+  let g:airline_right_sep         = '◀'
+  let g:airline_right_alt_sep     = '«'
+  let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
+  let g:airline#extensions#readonly#symbol   = '⊘'
+  let g:airline#extensions#linecolumn#prefix = '¶'
+  let g:airline#extensions#paste#symbol      = 'ρ'
+  let g:airline_symbols.linenr    = '␊'
+  let g:airline_symbols.branch    = '⎇'
+  let g:airline_symbols.paste     = 'ρ'
+  let g:airline_symbols.paste     = 'Þ'
+  let g:airline_symbols.paste     = '∥'
+  let g:airline_symbols.whitespace = 'Ξ'
+else
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
+endif
+
+" ale plugin
+let g:ale_sign_warning = '⚠️'
+let g:ale_sign_error = '❌'
+" how to do YAML, JSON linting with `ale`
+" npm install -g yaml-language-server jsonlint
+
+" iamcco/markdown preview requires to execute this `cd app && npm install`
+let g:mkdp_refresh_slow = 1
+let g:mkdp_markdown_css = '/Users/arturofernandez/.vim/pack/plugins/start/markdown-preview/github-markdown.css'
+
+" ctrl-p
+" Open files in new tab
+"let g:ctrlp_prompt_mappings = {
+"    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+"    \ 'AcceptSelection("t")': ['<cr>'],
+"    \ }
+nmap <Leader>b :CtrlPBuffer<CR>
